@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+  <h4>Question</h4><br>
+  {% if question %}
+    <div class="row">
+      <div class="col">
+        <h5>{{ question.qdesc |safe }}</h5>
+      </div>
+      <div class="col-md-auto">
+        {% if question.qimage %}
+           <img src={{question.qimage.url}} alt="None">
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="funkyradio">
+          <div class="funkyradio-primary">
+              <input type="radio" name="radio" id="radio1" value="1" />
+              <label for="radio1">{{question.qop1 |safe}}</label>
+          </div>
+          <div class="funkyradio-primary">
+              <input type="radio" name="radio" id="radio2" value="2" />
+              <label for="radio2">{{question.qop2 |safe}}</label>
+          </div>
+          {% if question.qop3 %}
+          <div class="funkyradio-primary">
+              <input type="radio" name="radio" id="radio3" value="3" />
+              <label for="radio3">{{question.qop3 |safe}}</label>
+          </div>
+          {% endif %}
+          {% if question.qop4 %}
+          <div class="funkyradio-primary">
+              <input type="radio" name="radio" id="radio4" value="4" />
+              <label for="radio4">{{question.qop4 |safe}}</label>
+          </div>
+          {% endif %}
+          {% if question.qop5 %}
+          <div class="funkyradio-primary">
+              <input type="radio" name="radio" id="radio5" value="5" />
+              <label for="radio5">{{question.qop5 |safe}}</label>
+          </div>
+          {% endif %}
+      </div>
+    </div>
+
+    <a class="btn btn-primary" href="{% url 'main:show_quiz' pk=question.prevq %}" role="button">Back</a>
+    <a class="btn btn-primary" href="{% url 'main:show_quiz' pk=question.nextq %}" role="button">Next</a>
+    <button onclick="check_ans( {{question.qans}} );" type="button" class="btn btn-info">Check</button>
+    <button onclick="show_hide_by_id('q_hint');" type="button" class="btn btn-info">Hint</button>
+    <button onclick="show_hide_by_id('q_soln');" type="button" class="btn btn-info">Show</button>
+    <p><br></p>
+    <form  action="{% url 'main:start_quiz' %}" method="post">
+      {% csrf_token %}
+      <input class="btn btn-success" type="submit" onclick="" value="All Done">
+    </form>
+    <br>
+    <div id="q_hint"  >
+      Hint: {{question.qhint|safe}}<br>
+      {% if question.qhimg %}
+         <img src={{question.qhimg.url}} alt="None">
+      {% endif %}
+    </div>
+    <div id="q_soln"  >Show: {{question.qsol|safe}}<br>
+      {% if question.qsimg %}
+         <img src={{question.qsimg.url}} alt="None">
+      {% endif %}
+    </div>
+    <p><br></p>
+    <p><br></p>
+  {% else %}
+    <p>There are no questions in the quiz.</p>
+  {% endif %}
+
+{% endblock %}

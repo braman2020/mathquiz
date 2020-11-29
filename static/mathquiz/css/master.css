@@ -1,0 +1,158 @@
+
+html,
+body {
+  /*height: 100%;
+  width: 100%;
+  overflow: hidden;*/
+  /*"https://images.pexels.com/photos/908284/pexels-photo-908284.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  https://ak5.picdn.net/shutterstock/videos/4113265/thumb/1.jpg
+  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-xH4VRGRP2EccIOcVRme5cqqg8RZsJ3SHXOQ5yeHU3twigsS
+  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGlC1KaBDtz96nyMUnTowq5vY6j58bcIZWdGk0hG0GhtzJBuGldw
+  https://www.circololettori.it/wp-content/uploads/2014/04/Proving_Darwin.jpg
+  http://cdn3.wallpapersok.com/uploads/picture/800/44800/thumbs_matematika-velichina-chislo-pi.jpg
+  https://c.wallhere.com/photos/21/6d/1280x1024_px_black_background_Fibonacci_Sequence_geometry_Golden_Ratio_Inception_mathematics_minimalism-987995.jpg!d
+  background-image:url("https://c.wallhere.com/photos/21/6d/1280x1024_px_black_background_Fibonacci_Sequence_geometry_Golden_Ratio_Inception_mathematics_minimalism-987995.jpg!d");
+  */
+  background-color: black;
+
+  /*
+  background: url("https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi1rIWw_frgAhVPXhoKHc3cC7QQjRx6BAgBEAU&url=https%3A%2F%2Fpixers.ca%2Fbody-pillows%2Fseamless-background-with-simple-icons-on-the-theme-of-mathematics-and-learning-colored-marker-on-white-background-108785264&psig=AOvVaw2hxwtv_wP97zFGCJJ1Sfye&ust=1552424304356846");
+    background-repeat:repeat;
+    background-repeat:no-repeat;
+  */
+  color: #9b4b06;
+
+  margin: 0;
+}
+
+h1 {
+  color: blue;
+}
+/*
+div{
+  background: black;
+  border: red;
+  border-width: 20px 20px 20px 20px;
+  border-style: double;
+  }
+
+p{
+  color: #9b4b06;
+  font-size: 80px ;
+}
+
+span{
+  background: red;
+  color: black;
+}
+*/
+
+
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 3.25em;
+  margin-top: 2em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: #D1D3D4;
+  border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #888;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: #777;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-default input[type="radio"]:checked ~ label:before,
+.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.funkyradio-success input[type="radio"]:checked ~ label:before,
+.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.funkyradio-danger input[type="radio"]:checked ~ label:before,
+.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #d9534f;
+}
+
+.funkyradio-warning input[type="radio"]:checked ~ label:before,
+.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #f0ad4e;
+}
+
+.funkyradio-info input[type="radio"]:checked ~ label:before,
+.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5bc0de;
+}

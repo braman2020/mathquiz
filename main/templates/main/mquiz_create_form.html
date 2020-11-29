@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <!-- Control the column width, and how they should appear on different devices -->
+    <h3>Edit the question</h3>
+    <form action="" enctype="multipart/form-data" method="POST">
+       {% csrf_token %}
+       <!-- Question description and Image file and the correct Option no. -->
+       <div class="row">
+         <div class="col-sm-6" >
+            {{ form.qdesc|as_crispy_field }}
+         </div>
+         <div class="col-sm-6" >
+            {{ form.qans|as_crispy_field }}
+            {{ form.qimage|as_crispy_field }}
+         </div>
+       </div>
+       <br>
+       <!-- Options 1 and 2 -->
+       <div class="row">
+         <div class="col-sm-6" >
+            {{ form.qop1|as_crispy_field }}
+         </div>
+         <div class="col-sm-6" >
+            {{ form.qop2|as_crispy_field }}
+         </div>
+       </div>
+       <br>
+       <!-- Options 3 and 4 -->
+       <div class="row">
+         <div class="col-sm-6" >
+            {{ form.qop3|as_crispy_field }}
+         </div>
+         <div class="col-sm-6" >
+            {{ form.qop4|as_crispy_field }}
+         </div>
+       </div>
+       <br>
+       <!-- Option 5 and Hint description -->
+       <div class="row">
+         <div class="col-sm-6" >
+            {{ form.qop5|as_crispy_field }}
+         </div>
+       </div>
+       <br>
+       <!-- Solution description -->
+       <div class="row">
+         <div class="col-sm-6" >
+            {{ form.qhint|as_crispy_field }}
+            {{ form.qhimg|as_crispy_field }}
+         </div>
+         <div class="col-sm-6" >
+            {{ form.qsol|as_crispy_field }}
+            {{ form.qsimg|as_crispy_field }}
+         </div>
+       </div>
+       {% comment %} Buttons {% endcomment %}
+       <input type="submit" class="button blue" value="Save Question">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h4>Question</h4><br>
+  <div class="row">
+   <div class="col">
+     <h5>{{ q.qdesc |safe }}</h5>
+   </div>
+   <div class="col-md-auto">
+     {% if q.qimage %}
+        <img src="{{q.qimage.url}}" alt="None">
+     {% endif %}
+   </div>
+  </div>
+  <div class="col-md-10">
+  {% comment %} <div class="col-md-6"> {% endcomment %}
+   <!-- <h4>Choose one of the following</h4> -->
+     <div class="funkyradio">
+         <div class="funkyradio-primary">
+             <input type="radio" name="radio" id="radio1" value="1" />
+             <label for="radio1">{{q.qop1 |safe}}</label>
+         </div>
+         <div class="funkyradio-primary">
+             <input type="radio" name="radio" id="radio2" value="2" />
+             <label for="radio2">{{q.qop2 |safe}}</label>
+         </div>
+         <div class="funkyradio-primary">
+             <input type="radio" name="radio" id="radio3" value="3" />
+             <label for="radio3">{{q.qop3 |safe}}</label>
+         </div>
+         <div class="funkyradio-primary">
+             <input type="radio" name="radio" id="radio4" value="4" />
+             <label for="radio4">{{q.qop4 |safe}}</label>
+         </div>
+         <div class="funkyradio-primary">
+             <input type="radio" name="radio" id="radio5" value="5" />
+             <label for="radio5">{{q.qop5 |safe}}</label>
+         </div>
+     </div>
+  </div>
+  <p><br></p>
+  <h5>Hint: {{q.qhint|safe}}</h5>
+  {% if q.qhimg %}
+     <img src="{{q.qhimg.url}}" alt="None">
+  {% endif %}
+  <p><br></p>
+  <h5>Show: {{q.qsol|safe}}</h5>
+  {% if q.qsimg %}
+    <img src="{{q.qsimg.url}}" alt="None">
+  {% endif %}
+  <p><br></p>
+  <a class="btn btn-primary" href="{% url 'main:update_question' q.pk %}" role="button">Amend</a>
+  <a class="btn btn-primary" href="{% url 'main:list_question' %}" role="button">Back</a>
+{% endblock %}

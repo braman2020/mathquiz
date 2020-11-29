@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>Listing all questions</h1>
+    {% if q_list %}
+    <ul>
+      {% for q in q_list %}
+        <li>
+          {% comment %}
+          See how the get_absolute_url method has been invoked here on the
+          object. It basically returns a string that is a url that uniquely
+          identifies a mquiz row. The DetailView class automatically knows
+          the context for its template to display the question.
+          {% endcomment %}
+          <a href="{{ q.get_absolute_url }}">{{ q.qdesc|slice:":80"|safe }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no questions in the quiz.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
